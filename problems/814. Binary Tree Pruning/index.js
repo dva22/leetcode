@@ -14,6 +14,7 @@ The value of each node will only be 0 or 1.
 
 var pruneTree = module.exports = function(root) {
   if (!root) return null
+  console.log(root);
 
   // recurse as deep as you can until you hit a leaf
   root.left = pruneTree(root.left)
