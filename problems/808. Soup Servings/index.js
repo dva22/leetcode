@@ -16,7 +16,6 @@ Output: [8,12,6,10,10,10]
 
  
 var soupServings = module.exports = function(N) {
-    //memo = Array(200).fill(Array(200).fill(null));
     memo = Array(200).fill(null).map(() => Array(200).fill(null));
      
         return N >= 4800 ?  1.0 : f(Math.ceil(N / 25.0),Math.ceil(N / 25.0));
