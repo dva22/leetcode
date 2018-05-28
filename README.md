@@ -8,4 +8,4 @@ My LeetCode Solutions.
 npm i
 npm test
 ```
-Or run runTest.bat in the each problem
+Or run "runTest.bat" in the each problem
