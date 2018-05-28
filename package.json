@@ -4,7 +4,7 @@
   "description": "LeetCode solutions using JavaScript.",
   "main": "index.js",
   "scripts": {
-    "test": "npm run mocha"
+    "test": "node ./node_modules/mocha/bin/mocha"
   },
   "author": "dva <dva@farma.amur.ru>",
   "license": "MIT",
