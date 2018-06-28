@@ -1,39 +1,27 @@
-// Source : https://leetcode.com/problems/number-of-lines-to-write-string/description/
+// Source : hhttps://leetcode.com/problems/buddy-strings/description/
 
 // Author : Dubchak Valery (dva@farma.amur.ru)
 
 /***
-We are to write the letters of a given string S, from left to right into lines. Each line has maximum width 100 units, and if writing a letter would cause the width of the line to exceed 100 units, it is written on the next line. We are given an array widths, an array where widths[0] is the width of 'a', widths[1] is the width of 'b', ..., and widths[25] is the width of 'z'.
-
-Now answer two questions: how many lines have at least one character from S, and what is the width used by the last such line? Return your answer as an integer list of length 2.
+Given two strings A and B of lowercase letters, return true if and only if we can swap two letters in A so that the result equals B.
 
  
 
-Example :
-Input: 
-widths = [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10]
-S = "abcdefghijklmnopqrstuvwxyz"
-Output: [3, 60]
+Example 1:
+
+Input: A = "ab", B = "ba"
+Output: true
 ***/
 
 var buddyStrings = module.exports = function(A, B) {
-    if (A.length != B.length) return false;
-    let k = 0;
-    for (let i = 0; i < A.length; i++) {
-        if (A[i]!=B[i]){
-            if (k == 1 && (A[i]!=tmpB || B[i]!=tmpA)) {
-                return false; 
-            } 
-            if (k == 2) {
-                return false; 
-            }     
-              
-            tmpA = A[i];
-            tmpB = B[i];
-            k++;
-        }
-        
+    if (A.length != B.length) {
+        return false;
     }
-    return true;
-    
+    let [dif, chars] = [[], new Set(A)];
+    for (i in A) {
+        if (A[i] != B[i]) {
+            dif.push([A[i], B[i]]);
+        }
+    }
+    return dif.length == 2 && dif[0].join() == dif[1].reverse().join() || (dif.length == 0 && chars.size != A.length);
 };
