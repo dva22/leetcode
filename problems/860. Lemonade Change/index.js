@@ -1,19 +1,24 @@
-// Source : https://leetcode.com/problems/custom-sort-string/description/
+// Source : https://leetcode.com/problems/lemonade-change/description/
 
 // Author : Dubchak Valery (dva@farma.amur.ru)
 
 /***
-S and T are strings composed of lowercase letters. In S, no letter occurs more than once.
+At a lemonade stand, each lemonade costs $5. 
 
-S was sorted in some custom order previously. We want to permute the characters of T so that they match the order that S was sorted. More specifically, if x occurs before y in S, then x should occur before y in the returned string.
+Customers are standing in a queue to buy from you, and order one at a time (in the order specified by bills).
 
-Return any permutation of T (as a string) that satisfies this property.
+Each customer will only buy one lemonade and pay with either a $5, $10, or $20 bill.  You must provide the correct change to each customer, so that the net transaction is that the customer pays $5.
 
-Example :
-Input: 
-S = "cba"
-T = "abcd"
-Output: "cbad"
+Note that you don't have any change in hand at first.
+
+Return true if and only if you can provide every customer with correct change.
+
+ 
+
+Example 1:
+
+Input: [5,5,5,10,20]
+Output: true
 ***/
 
 
