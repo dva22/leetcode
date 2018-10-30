@@ -46,18 +46,11 @@ Write a SQL query to find the cancellation rate of requests made by unbanned use
 
 /* Write your T-SQL query statement below */
 /***
-select T.Request_at Day, Round(CAST(isnull(max(CanceledTable.CountCancelled),0) as float)/CAST(count(*) as float), 2) as "Cancellation Rate"
-from Users U, Trips T left join 
-(select T.Request_at Request_at, count(*) CountCancelled
+select T.Request_at Day,
+       round(sum(iif(T.Status != 'completed', 1, 0))/cast(count(*) as float), 2) as 'Cancellation Rate'
 from Trips T, Users U
 where T.Client_Id = U.Users_Id and
       U.Banned = 'No' and
-      (T.Status = 'cancelled_by_driver' or 
-       T.Status = 'cancelled_by_client')
-group by T.Request_at) CanceledTable on CanceledTable.Request_at = T.Request_at
-where T.Client_Id = U.Users_Id and
-      U.Banned = 'No' and
-       T.Request_at between '2013-10-01' and '2013-10-03'
-      
+      T.Request_at between '2013-10-01' and '2013-10-03'                             
 group by T.Request_at
 *///
